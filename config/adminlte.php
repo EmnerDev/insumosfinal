@@ -226,11 +226,11 @@ return [
 
     'menu' => [
         // Navbar items:
-        // [
-        //     'type'         => 'navbar-search',
-        //     'text'         => 'search',
-        //     'topnav_right' => true,
-        // ],
+        //  [
+        //      'search'         => true,
+        //      'text'         => 'search',
+        //      'topnav' => true,
+        //  ],
         //  [
         //      'type'         => 'fullscreen-widget',
         //      'topnav_right' => true,
@@ -324,7 +324,17 @@ return [
         //         ],
         //     ],
         // ],
-        ['header' => 'Cerrar Sesion'],
+        ['header' => 'Cuenta'],
+         [
+             'text' => 'Cerrar Sesion',
+             'url'  => 'login',
+            'icon' => 'fas fa-fw fa-user',
+         ],
+         [
+             'text' => 'change_password',
+             'url'  => 'admin/settings',
+             'icon' => 'fas fa-fw fa-lock',
+         ],
         
         //  [
         //      'text'       => 'Insumo Total',
@@ -379,7 +389,7 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
@@ -399,7 +409,7 @@ return [
             ],
         ],
         'Select2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
@@ -414,7 +424,7 @@ return [
             ],
         ],
         'Chartjs' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',

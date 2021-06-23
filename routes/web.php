@@ -21,6 +21,11 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index2')->name('index2')->middleware('auth');
 
+// Route::get('login',  function(){return Auth::check() ? redirect()->route('index') : view('auth.login');})->name('login');
+// Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+// Route::post('validaracceso', 'Auth\LoginController@login')->name('validar_acceso');
+
+
 Route::get('/index', 'AdminController@index')->name('index')->middleware('auth');
 
 Route::get('/admin/index/data', 'AdminController@index_data')->name('admin.data')->middleware('auth');

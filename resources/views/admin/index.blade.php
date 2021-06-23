@@ -1,6 +1,8 @@
 @extends('adminlte::page')
 @section('css')
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">   
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   
 
 @endsection  
 @section('content')
@@ -25,19 +27,7 @@
                         <a class="dropdown-item" href="{{route('reportes.entrada')}}">Entrada de Insumos</a>
                         <a class="dropdown-item" href="{{route('reportes.salida')}}">Salida de Insumos</a> 
                         </div>
-                    </div> 
-                    <div class="btn-group">
-                    <button type="button" class="btn btn-default">Action</button>
-                    <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown">
-                      <span class="sr-only">Toggle Dropdown</span>
-                    </button>
-                    <div class="dropdown-menu" role="menu">
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Separated link</a>
-                    </div> -->
+                    </div>  -->
                 </div>
                 <div class="card-body">   
 
@@ -85,8 +75,8 @@
 <!-- <script src="{{ asset('js/dni.js') }}"></script> -->
 <script src = "https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer ></script>  
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
  <!-- <script src="{{ asset('js/datatable.js') }}"></script> -->
  <script src="{{ asset('js/admin.js') }}"></script>
  <!-- <script src="{{ asset('js/mi-script.js') }}"></script> -->
