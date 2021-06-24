@@ -327,14 +327,14 @@ return [
         ['header' => 'Cuenta'],
          [
              'text' => 'Cerrar Sesion',
-             'url'  => 'login',
-            'icon' => 'fas fa-fw fa-user',
+             'url'  => '/login',
+            'icon' => 'fas fa-power-off',
          ],
-         [
-             'text' => 'change_password',
-             'url'  => 'admin/settings',
-             'icon' => 'fas fa-fw fa-lock',
-         ],
+        //  [
+        //      'text' => 'change_password',
+        //      'url'  => 'admin/settings',
+        //      'icon' => 'fas fa-fw fa-lock',
+        //  ],
         
         //  [
         //      'text'       => 'Insumo Total',
