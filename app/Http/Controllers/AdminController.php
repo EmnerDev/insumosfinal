@@ -25,16 +25,15 @@ class AdminController extends Controller
         }';
     }   
     public function index(){
-        $users= User::all();
+        $personal= User::all();
         $productos= Producto::all();
-        return view('admin.index',compact('users','productos') );
-
+        return view('admin.index',compact('personal','productos') );
     }
 
     public function index_data(){
 
        // return $tipo;
-    $query = Entrega::where("id","<>",1)->get();
+        $query = Entrega::get();
         if($query->count()<1)
         return $this->data_null;
         
@@ -43,9 +42,9 @@ class AdminController extends Controller
         foreach ($query as $dato) {
              
                 
-                            $personal = $dato -> user-> nombres;
-                            $fecha = $dato -> created_at;
-                            $descripcion = $dato -> descripcion;
+                            $personal = $dato->user->nombres;
+                            $fecha = $dato->fecha;
+                            $descripcion = $dato->descripcion;
 
                             // $usuarios_all = $dato->nombre.' '.$dato->apellidos;
                             // $producto=$dato->nombre;
@@ -60,7 +59,7 @@ class AdminController extends Controller
 
                             // $data['aaData'][] = [  $usuarios_all, $producto, $cantidad, $presentacion,  $descripcion,$fecha];
 
-                            $data['aaData'][] = [  $personal, 'entrega', $descripcion, $fecha];
+                            $data['aaData'][] = [  $fecha, $personal, $descripcion, 'boton'];
         }
         return json_encode($data, true);      
     }

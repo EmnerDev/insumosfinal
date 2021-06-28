@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('index');
+Route::get('/', 'HomeController@index');//->name('index');
 
 Route::get('/index', 'AdminController@index')->name('index')->middleware('auth');
 
@@ -50,8 +50,13 @@ Route::post('/inventario/{tipo}/eliminar', 'InventarioController@destroy')->midd
 Route::get('/test/{idproducto}', 'InventarioController@actualizar_cantidad')->name('inventario.actualizar_cantidad')->middleware('auth');
 
 //ruta reportes
-
 Route::get('/reportes/total', 'ReporteController@generar')->name('reportes.total');
 Route::get('/reportes/entrada', 'ReporteController@reporte_ingreso')->name('reportes.entrada');
 Route::get('/reportes/salida', 'ReporteController@reporte_salida')->name('reportes.salida');
+
+//entregas
+
+Route::post('/salidas/entrega_n', 'EntregaController@store')->name('nueva_entrega')->middleware('auth');
+
+Route::get('/salidas/entrega/{id}/actualizar', 'EntregaController@index')->name('entrega')->middleware('auth');
 
