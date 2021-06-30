@@ -324,12 +324,12 @@ return [
         //         ],
         //     ],
         // ],
-        ['header' => 'Cuenta'],
-         [
-             'text' => 'Cerrar Sesion',
-             'url'  => '/login',
-            'icon' => 'fas fa-power-off',
-         ],
+        // ['header' => 'Cuenta'],
+        //  [
+        //      'text' => 'Cerrar Sesion',
+        //      'url'  => '/login',
+        //     'icon' => 'fas fa-power-off',
+        //  ],
         //  [
         //      'text' => 'change_password',
         //      'url'  => 'admin/settings',
