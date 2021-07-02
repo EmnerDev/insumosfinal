@@ -110,7 +110,8 @@
     var tabla_insumos = ['2','222'];
     $('#personal').select2();
     $("#agregar").click(function(){
-        alert();
+        alert('holaaaaa');
+        
     })
 
     function set_tabla(){

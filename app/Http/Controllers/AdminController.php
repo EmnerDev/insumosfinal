@@ -67,7 +67,12 @@ class AdminController extends Controller
 
 public function index_nuevo(Request $r){
    
-    
+    $q = new Producto;
+    $q->producto_id = $request->producto_id;
+    $q->cantidad = $request->cantidad;
+ //    $q->descripcion = $request->descripcion;
+    $q->save();
+     return redirect()->route("productos",[$q->id]);   
      
 }
 }

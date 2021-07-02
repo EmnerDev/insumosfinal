@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\model\Producto;
 use App\model\Entrega;
+use App\model\SalidaProducto;
 
 class EntregaController extends Controller
 {
@@ -29,6 +30,7 @@ class EntregaController extends Controller
                     
                     // $fecha = Carbon::parse($d->created_at)->format('d/m/Y - H:i:s');
                     $accion='ss';
+                    
                     // $editar = "<button class='btn btn-sm btn-success' onclick='editar_registro_insumo($d->id)'>Editar</button>"; 
                     // $eliminar = "<button class='btn btn-sm btn-danger' onclick='eliminar_insumos( $vdatos)'>Eliminar</button>";
 
@@ -55,12 +57,14 @@ class EntregaController extends Controller
     }
     public function nuevo(Request $request)
     {
-       $q = new Producto;
-       $q->producto_id = $request->producto_id;
-       $q->cantidad = $request->cantidad;
+    //    $q = new Producto;
+    //    $q->nombre = $request->producto;
+    //    $q->cantidad = $request->cantidad;
     //    $q->descripcion = $request->descripcion;
-       $q->save();
-        return redirect()->route("productos",[$q->id]);
+        // $q->save();
+        //  return redirect()->route("productos",[$q->id]);
+
+    //   SalidaProducto::create($request->all());
     }
 
     public function show($id)

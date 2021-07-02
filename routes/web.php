@@ -24,7 +24,7 @@ Route::get('/', 'HomeController@index');//->name('index');
 Route::get('/index', 'AdminController@index')->name('index')->middleware('auth');
 
 Route::get('/admin/index/data', 'AdminController@index_data')->name('admin.data')->middleware('auth');
-Route::post('/index/{tipo}/nuevo', 'AdminController@index_nuevo')->name('admin.index_nuevo')->middleware('auth');
+// Route::post('/admin/index/{id}/index_nuevo', 'AdminController@index_nuevo')->name('admin.index_nuevo')->middleware('auth');
 
 
 
@@ -57,6 +57,8 @@ Route::get('/reportes/salida', 'ReporteController@reporte_salida')->name('report
 //entregas
 
 Route::post('/salidas/entrega_n', 'EntregaController@store')->name('nueva_entrega')->middleware('auth');
+
+Route::post('/admin/entrega/nuevo', 'EntregaController@nuevo')->name('admin.entrega.nuevo')->middleware('auth');
 
 Route::get('/salidas/entrega/{id}/actualizar', 'EntregaController@index')->name('entrega')->middleware('auth');
 
