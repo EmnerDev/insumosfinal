@@ -37,22 +37,22 @@
    
     </div>   
 
-
+ 
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">INSUMOS</h5><br><br>
-            
+           
                 <div class="form-group row">
-                    <input type="number" placeholder="Cant" class="col-sm-2 form-control"> 
-                    
-                    <select class="form-control col-sm-7" id="id_producto" name="producto">
+                    <input type="number" placeholder="Cant" name="cantidad" id="id_cantidad" class="col-sm-2 form-control"> 
+                 
+                    <select class="form-control col-sm-7" id="id_producto" name="producto_id">
                         <option >Abre y selecciona producto</option>   
                             @foreach($productos as $t)
                         <option value="{{$t->id}}">{{$t->nombre}} - {{$t->presentacion->nombre}}</option>                     
                         @endforeach                
                     </select>
                     <button class="btn btn-success col-sm-2 " id="agregar"> Agregar</button>
-                </div>  <hr>
+                </div> <hr>
 
                 <table class="table" id="tabla_insumos">
                     <thead>
@@ -110,8 +110,46 @@
     var tabla_insumos = ['2','222'];
     $('#personal').select2();
     $("#agregar").click(function(){
-        alert('holaaaaa');
-        
+        // alert('holaaaaa');
+        if( $("#id_cantidad").val()=="" || $("#id_producto").val()==""){
+            alert("Hay campo(s) vacio(s)");
+            return false;
+        }
+        var datos=$("#tabla_insumos").serialize();       
+        var route = "/admin/entrega/nuevo";
+           
+        $.ajax({
+                headers:{'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}, 
+                data: datos,
+                url:   route,
+                type: 'POST',
+            beforeSend: function () {
+                console.log('enviando....');
+            },
+            success:  function (){
+                Swal.fire({
+                    position: 'top-end',
+                    type: 'success',
+                    title: 'Se registró Correctamente',
+                    showConfirmButton: false,
+                    timer: 1500
+                }) 
+                 $('#data_table').DataTable().ajax.reload();
+                // $('#modal_nuevo').modal('hide');                 
+                $("#cantidad").val("");      
+                $("#producto_id").val("");  
+
+            },
+            error: function (response){
+                console.log("Error",response.data);
+                Swal.fire({
+                    title: "¡Error!",
+                    text: response.responseJSON.message,
+                    icon: "error",
+                    timer: 3500,
+                })
+            }
+        });
     })
 
     function set_tabla(){
