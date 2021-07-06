@@ -115,7 +115,13 @@
             alert("Hay campo(s) vacio(s)");
             return false;
         }
-        var datos=$("#tabla_insumos").serialize();       
+        var datos=$("#tabla_insumos").serialize();
+
+        var list = { id_cantidad, id_producto};
+        console.log(list);
+
+
+        // alert('Datos serializados: '+datos);       
         var route = "/admin/entrega/nuevo";
            
         $.ajax({
@@ -134,8 +140,7 @@
                     showConfirmButton: false,
                     timer: 1500
                 }) 
-                 $('#data_table').DataTable().ajax.reload();
-                // $('#modal_nuevo').modal('hide');                 
+                 $('#data_table').DataTable().ajax.reload();                               
                 $("#cantidad").val("");      
                 $("#producto_id").val("");  
 

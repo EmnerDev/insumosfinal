@@ -61,18 +61,18 @@ class EntregaController extends Controller
         // return 'eres';
         // $k = PivotEntregaSalida::find($q->id);
 
-        //  $q = new SalidaProducto;
-        //  $q->producto_id = $request->producto_id;
-        //  $q->cantidad = $request->cantidad;
-        //  $q->descripcion = $request->descripcion;
-        //  $q->save();
+          $q = new SalidaProducto;
+          $q->producto_id = $request->producto_id;
+          $q->cantidad = $request->cantidad;
+          $q->descripcion = $request->descripcion;
+          $q->save();
 
         // $k = new PivotEntregaSalida;
         // $k->entrega_id = $q->id;
         // $k->salida_id =  $q->id;
         //    return redirect()->route("entrega",[$q->id]);
 
-    SalidaProducto::create($request->all());
+    // SalidaProducto::create($request->all());
         // $datos = $request->all();
         // return response()->json($datos);
     }
