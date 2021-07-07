@@ -36,7 +36,8 @@
         </div>
    
     </div>   
-
+    <form id="agregar_producto" method="POST" action="{{route('entre_n')}}"> 
+      @csrf 
  
     <div class="card">
         <div class="card-body">
@@ -52,7 +53,7 @@
                         @endforeach                
                     </select>
                     <button class="btn btn-success col-sm-2 " id="agregar"> Agregar</button>
-                </div> <hr>
+                </div> </form> <hr>
 
                 <table class="table" id="tabla_insumos">
                     <thead>
@@ -64,25 +65,17 @@
                         </tr>
                     </thead>
                     <tbody>
+                         @foreach($salida_productos as $key => $s)
                         <tr>
-                        <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
+                        
+                            <td>{{ ($key+1) }}</td>
+                            <td>{{ $s->cantidad }}</td>
+                            <td>{{ $s->producto->nombre }}</td>
+                            <!-- <td>{{ $s->cantidad }}</td> -->
+                           
                         </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                    </tbody>
+                        @endforeach
+                        </tbody>
                 </table>
                 
         </div>
@@ -111,50 +104,11 @@
     $('#personal').select2();
     $("#agregar").click(function(){
         // alert('holaaaaa');
+
         if( $("#id_cantidad").val()=="" || $("#id_producto").val()==""){
-            alert("Hay campo(s) vacio(s)");
-            return false;
-        }
-        var datos=$("#tabla_insumos").serialize();
-
-        var list = { id_cantidad, id_producto};
-        console.log(list);
-
-
-        // alert('Datos serializados: '+datos);       
-        var route = "/admin/entrega/nuevo";
-           
-        $.ajax({
-                headers:{'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}, 
-                data: datos,
-                url:   route,
-                type: 'POST',
-            beforeSend: function () {
-                console.log('enviando....');
-            },
-            success:  function (){
-                Swal.fire({
-                    position: 'top-end',
-                    type: 'success',
-                    title: 'Se registró Correctamente',
-                    showConfirmButton: false,
-                    timer: 1500
-                }) 
-                 $('#data_table').DataTable().ajax.reload();                               
-                $("#cantidad").val("");      
-                $("#producto_id").val("");  
-
-            },
-            error: function (response){
-                console.log("Error",response.data);
-                Swal.fire({
-                    title: "¡Error!",
-                    text: response.responseJSON.message,
-                    icon: "error",
-                    timer: 3500,
-                })
-            }
-        });
+        alert("Hay campo(s) vacio(s)");
+        return false;
+    }
     })
 
     function set_tabla(){

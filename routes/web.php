@@ -58,7 +58,8 @@ Route::get('/reportes/salida', 'ReporteController@reporte_salida')->name('report
 
 Route::post('/salidas/entrega_n', 'EntregaController@store')->name('nueva_entrega')->middleware('auth');
 
-Route::post('/admin/entrega/nuevo', 'EntregaController@nuevo')->name('admin.entrega.nuevo')->middleware('auth');
+// Route::post('/admin/entrega/nuevo', 'EntregaController@nuevo')->name('admin.entrega.nuevo')->middleware('auth');
+Route::post('/salidas/entrega_p', 'EntregaController@nuevo')->name('entre_n')->middleware('auth');
 
 Route::get('/salidas/entrega/{id}/actualizar', 'EntregaController@index')->name('entrega')->middleware('auth');
 

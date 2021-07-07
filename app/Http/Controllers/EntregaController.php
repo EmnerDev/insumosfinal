@@ -15,7 +15,8 @@ class EntregaController extends Controller
     {
          $entrega = Entrega::find($id);
         $productos = Producto::get();
-        return view('admin.entrega.index',compact('entrega','productos'));
+        $salida_productos = SalidaProducto::all();
+        return view('admin.entrega.index',compact('entrega','productos','salida_productos'));
     }
 
     public function create()
@@ -64,13 +65,14 @@ class EntregaController extends Controller
           $q = new SalidaProducto;
           $q->producto_id = $request->producto_id;
           $q->cantidad = $request->cantidad;
-          $q->descripcion = $request->descripcion;
+        //   $q->descripcion = $request->descripcion;
           $q->save();
+     
 
         // $k = new PivotEntregaSalida;
         // $k->entrega_id = $q->id;
         // $k->salida_id =  $q->id;
-        //    return redirect()->route("entrega",[$q->id]);
+         return redirect()->route("entrega",[$q->id]);
 
     // SalidaProducto::create($request->all());
         // $datos = $request->all();
