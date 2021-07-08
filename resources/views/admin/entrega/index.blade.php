@@ -71,7 +71,7 @@
                             <td>{{ ($key+1) }}</td>
                             <td>{{ $s->cantidad }}</td>
                             <td>{{ $s->producto->nombre }}</td>
-                            <!-- <td>{{ $s->cantidad }}</td> -->
+                             <td>Editar | Eliminar</td> 
                            
                         </tr>
                         @endforeach

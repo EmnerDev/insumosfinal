@@ -22,23 +22,23 @@ class EntregaController extends Controller
     public function create()
     {
 
-                $query=SalidaProducto::orderBy("id","desc")->get();
+                // $query=SalidaProducto::orderBy("id","desc")->get();
 
-                if( $query->count() < 1 )return $this->data_null;
-                foreach($query as $key => $d){
+                // if( $query->count() < 1 )return $this->data_null;
+                // foreach($query as $key => $d){
 
-                    // $vdatos=$d->id.',"insumos"';
+                //     // $vdatos=$d->id.',"insumos"';
 
-                    // $fecha = Carbon::parse($d->created_at)->format('d/m/Y - H:i:s');
-                    $accion='ss';
+                //     // $fecha = Carbon::parse($d->created_at)->format('d/m/Y - H:i:s');
+                //     $accion='ss';
 
-                    // $editar = "<button class='btn btn-sm btn-success' onclick='editar_registro_insumo($d->id)'>Editar</button>";
-                    // $eliminar = "<button class='btn btn-sm btn-danger' onclick='eliminar_insumos( $vdatos)'>Eliminar</button>";
+                //     // $editar = "<button class='btn btn-sm btn-success' onclick='editar_registro_insumo($d->id)'>Editar</button>";
+                //     // $eliminar = "<button class='btn btn-sm btn-danger' onclick='eliminar_insumos( $vdatos)'>Eliminar</button>";
 
 
-                    $data['aaData'][] = [ $d->producto->nombre, $d->cantidad, $accion];
-                }
-                return json_encode($data, true);
+                //     $data['aaData'][] = [ $d->producto->nombre, $d->cantidad, $accion];
+                // }
+                // return json_encode($data, true);
     }
 
     /**

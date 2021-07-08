@@ -46,20 +46,15 @@ class AdminController extends Controller
                             $fecha = $dato->fecha;
                             $descripcion = $dato->descripcion;
 
-                            // $usuarios_all = $dato->nombre.' '.$dato->apellidos;
-                            // $producto=$dato->nombre;
-                            // $cantidad=$dato->cantidad ; 
-                            // $presentacion=$dato->presentacion->nombre ;   
-                            // $descripcion=$dato->descripcion; 
-                            // $fecha=$dato->created_at; 
+                       
 
                             
-                            // $editar = "<button class='btn btn-sm btn-success' onclick='editar($dato->id)'>Editar</button>"; 
+                             $editar = "<a href='{{route('entrega',$dato->id)}}' class='btn btn-sm btn-success'>Editar</a>"; 
                             // $eliminar = "<button class='btn btn-sm btn-danger' onclick='eliminar_personal($dato->id)'>Eliminar</button>";
 
                             // $data['aaData'][] = [  $usuarios_all, $producto, $cantidad, $presentacion,  $descripcion,$fecha];
 
-                            $data['aaData'][] = [  $fecha, $personal, $descripcion, 'boton'];
+                            $data['aaData'][] = [  $fecha, $personal, $descripcion, $editar];
         }
         return json_encode($data, true);      
     }
