@@ -53,7 +53,9 @@
                         @endforeach                
                     </select>
                     <button class="btn btn-success col-sm-2 " id="agregar"> Agregar</button>
-                </div> </form> <hr>
+                </div> 
+                <input type="hidden" value="{{$entrega->id}}" name="entrega_id">
+                </form> <hr>
 
                 <table class="table" id="tabla_insumos">
                     <thead>
@@ -65,23 +67,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                         @foreach($salida_productos as $key => $s)
+                         @foreach($pivot as $key => $s)
                         <tr>
                         
-                            <td>{{ ($key+1) }}</td>
-                            <td>{{ $s->cantidad }}</td>
-                            <td>{{ $s->producto->nombre }}</td>
-                             <td>Editar | Eliminar</td> 
+                        <td>{{ ($key+1) }}</td>
+                        <td>{{$s->salidaproducto->cantidad}}</td>
+                        <td>{{$s->salidaproducto->producto->nombre}} - {{$s->salidaproducto->producto->presentacion->nombre}}</td>
+                        <td><button type="button" class="btn btn-danger" onclick="eliminar_entrega('agregar_producto')">Eliminar</button></td> 
                            
                         </tr>
                         @endforeach
-                        </tbody>
+                       
+                    </tbody>
                 </table>
-                
+                    
         </div>
     </div>
 
-    <button class="btn btn-success"> Guardar</button><br><br>
+    <a href="{{route('index')}}" class="btn btn-success"> Volver</a>
     
 </div>
 
@@ -111,9 +114,6 @@
     }
     })
 
-    function set_tabla(){
-        $("#tabla_insumos tbody").html("");
-    }
-    set_tabla();
+    
 </script>
 @endsection

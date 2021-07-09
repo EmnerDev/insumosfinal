@@ -11,9 +11,9 @@ class PivotEntregaSalida extends Model
         'entrega_id','salida_id'
     ];
     public function entrega() {
-        return $this->belongstoMany(Entrega::class);
+        return $this->belongsto(Entrega::class,'entrega_id','id');
     }
-    public function salidaproductos() {
-        return $this->belongstoMany(SalidaProducto::class);
+    public function salidaproducto() {
+        return $this->belongsto(SalidaProducto::class,'salida_id','id');
     }
 }

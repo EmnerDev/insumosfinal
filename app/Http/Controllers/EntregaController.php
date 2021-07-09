@@ -7,38 +7,22 @@ use App\User;
 use App\model\Producto;
 use App\model\Entrega;
 use App\model\SalidaProducto;
+use App\model\PivotEntregaSalida;
 
 class EntregaController extends Controller
 {
 
     public function index($id)
     {
-         $entrega = Entrega::find($id);
+        $entrega = Entrega::find($id);
         $productos = Producto::get();
-        $salida_productos = SalidaProducto::all();
-        return view('admin.entrega.index',compact('entrega','productos','salida_productos'));
+        $pivot = PivotEntregaSalida::where('entrega_id',$id)->get();
+        return view('admin.entrega.index',compact('entrega','productos','pivot'));
     }
 
     public function create()
     {
-
-                // $query=SalidaProducto::orderBy("id","desc")->get();
-
-                // if( $query->count() < 1 )return $this->data_null;
-                // foreach($query as $key => $d){
-
-                //     // $vdatos=$d->id.',"insumos"';
-
-                //     // $fecha = Carbon::parse($d->created_at)->format('d/m/Y - H:i:s');
-                //     $accion='ss';
-
-                //     // $editar = "<button class='btn btn-sm btn-success' onclick='editar_registro_insumo($d->id)'>Editar</button>";
-                //     // $eliminar = "<button class='btn btn-sm btn-danger' onclick='eliminar_insumos( $vdatos)'>Eliminar</button>";
-
-
-                //     $data['aaData'][] = [ $d->producto->nombre, $d->cantidad, $accion];
-                // }
-                // return json_encode($data, true);
+             
     }
 
     /**
@@ -58,25 +42,18 @@ class EntregaController extends Controller
     }
     public function nuevo(Request $request)
     {
-
-        // return 'eres';
-        // $k = PivotEntregaSalida::find($q->id);
-
+        
           $q = new SalidaProducto;
           $q->producto_id = $request->producto_id;
           $q->cantidad = $request->cantidad;
-        //   $q->descripcion = $request->descripcion;
           $q->save();
      
-
-        // $k = new PivotEntregaSalida;
-        // $k->entrega_id = $q->id;
-        // $k->salida_id =  $q->id;
-         return redirect()->route("entrega",[$q->id]);
-
-    // SalidaProducto::create($request->all());
-        // $datos = $request->all();
-        // return response()->json($datos);
+        // para guardar en dos tablas distintas; se guarda de uno en uno muestra la vista
+         $k = new PivotEntregaSalida;
+         $k->entrega_id = $request->entrega_id;//este valor lo estás enviando desde el formulario
+         $k->salida_id =  $q->id; //este lo acabas de generar con SalidaProducto
+         $k->save();
+        return redirect()->route("entrega",[$request->entrega_id]);
     }
 
     public function show($id)
@@ -107,8 +84,9 @@ class EntregaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $r)
     {
-        //
+        SalidaProducto::destroy($r->id);
+        PivotEntregaSalida::destroy($r->id);
     }
 }

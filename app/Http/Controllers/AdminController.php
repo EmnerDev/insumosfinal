@@ -42,14 +42,17 @@ class AdminController extends Controller
         foreach ($query as $dato) {
              
                 
-                            $personal = $dato->user->nombres;
+                            $personal = $dato->user->nombres.' '.$dato->user->apellidos ;
                             $fecha = $dato->fecha;
                             $descripcion = $dato->descripcion;
 
                        
 
-                            
-                             $editar = "<a href='{{route('entrega',$dato->id)}}' class='btn btn-sm btn-success'>Editar</a>"; 
+                            //1. se usa {{estos corchetes cuando estás en HTML }}
+                            //2. No puedes tenr unas comillas sobre otras '''', se usan las otras ' " " '
+                            //En este caso, como necesitamos generar la ruta, podrias hacerlo antes de ingresarlo al HTML o generarlo manualmente
+                            $ruta = route("entrega",$dato->id); //listo tengo ootras dudas :v 
+                             $editar = "<a href='$ruta' class='btn btn-sm btn-success'>Editar</a>"; 
                             // $eliminar = "<button class='btn btn-sm btn-danger' onclick='eliminar_personal($dato->id)'>Eliminar</button>";
 
                             // $data['aaData'][] = [  $usuarios_all, $producto, $cantidad, $presentacion,  $descripcion,$fecha];
