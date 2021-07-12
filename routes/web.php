@@ -63,4 +63,4 @@ Route::post('/salidas/entrega_p', 'EntregaController@nuevo')->name('entre_n')->m
 
 Route::get('/salidas/entrega/{id}/actualizar', 'EntregaController@index')->name('entrega')->middleware('auth');
 
-Route::post('/entrega/eliminar', 'EntregaController@destroy')->middleware('auth');
+Route::post('/entrega/eliminar/', 'PersonalController@destroy')->middleware('auth');

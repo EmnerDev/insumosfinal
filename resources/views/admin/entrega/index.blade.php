@@ -73,7 +73,11 @@
                         <td>{{ ($key+1) }}</td>
                         <td>{{$s->salidaproducto->cantidad}}</td>
                         <td>{{$s->salidaproducto->producto->nombre}} - {{$s->salidaproducto->producto->presentacion->nombre}}</td>
-                        <td><button type="button" class="btn btn-danger" onclick="eliminar_entrega('agregar_producto')">Eliminar</button></td> 
+                        <td> 
+                                                                                    
+                            <button type="button" class="btn btn-danger" onclick="eliminar_entrega('$s->id')">Eliminar</button>
+                                                                             
+                        </td> 
                            
                         </tr>
                         @endforeach
