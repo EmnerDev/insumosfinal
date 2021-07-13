@@ -75,7 +75,7 @@
                         <td>{{$s->salidaproducto->producto->nombre}} - {{$s->salidaproducto->producto->presentacion->nombre}}</td>
                         <td> 
                                                                                     
-                            <button type="button" class="btn btn-danger" onclick="eliminar_entrega('$s->id')">Eliminar</button>
+                            <button type="button" class="btn btn-danger" onclick="eliminar_entrega({{$s->id}})">Eliminar</button>
                                                                              
                         </td> 
                            
@@ -117,7 +117,39 @@
         return false;
     }
     })
+    eliminar_entrega = function (id){
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: `Se eliminarán todos los registros vinculados a esta fecha`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, Estoy seguro',
+        cancelButtonText: 'No, cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                url: "/salidas/eliminar",
+                type: "POST",
+                data: {'id':id},
 
+                success:function(data){
+                    console.log(data);
+                    
+                    Swal.fire(
+                        '¡Eliminado!',
+                        'Se Eliminaron los datos correctamente',
+                        'success'
+                      )
+                },
+                error: function(data){
+                }
+            });
+        }
+    })
+}
     
 </script>
 @endsection

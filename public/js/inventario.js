@@ -1,7 +1,11 @@
 function actualizar(){
     location.reload();
 }
-guardar_nuevo_insumo = function (tipo,form_id){    
+guardar_nuevo_insumo = function (tipo,form_id){  
+    if( $("#nuevo_producto").val()=="" || $("#nuevo_cantidad").val()=="" || $("#nuevo_descripcion").val()=="" ){
+        alert("Hay campo(s) vacio(s)");
+        return false;
+    }  
     var $form=$(`#${form_id}`).serializeArray();   
     $.each($form, function (ind, elem) { 
         if(elem.value=="") alert("Llene todos los campos"); return false; 
@@ -16,6 +20,9 @@ guardar_nuevo_insumo = function (tipo,form_id){
             $("#nuevo_insumo_modal").modal("hide");
             $('body').removeClass('modal-open');
             $(".modal-backdrop").remove();
+            $("#nuevo_producto").val("");
+            $("#nuevo_cantidad").val("");
+            $("#nuevo_descripcion").val("");
             $("#agregar_insumo_modal").modal("hide");
             $('body').removeClass('modal-open');
             $(".modal-backdrop").remove();
