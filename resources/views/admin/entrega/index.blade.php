@@ -137,16 +137,19 @@
 
                 success:function(data){
                     console.log(data);
-                    
+                    // $('#zero_config').DataTable().ajax.reload();
+                   
                     Swal.fire(
                         '¡Eliminado!',
                         'Se Eliminaron los datos correctamente',
                         'success'
                       )
+                     
                 },
                 error: function(data){
                 }
             });
+            location.reload();  
         }
     })
 }

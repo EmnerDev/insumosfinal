@@ -48,9 +48,9 @@ class EntregaController extends Controller
           $q->cantidad = $request->cantidad;
           $q->save();
      
-        // para guardar en dos tablas distintas; se guarda de uno en uno muestra la vista
+        // para guardar en dos tablas distintas; se guarda de uno en uno
          $k = new PivotEntregaSalida;
-         $k->entrega_id = $request->entrega_id;//este valor lo estás enviando desde el formulario
+         $k->entrega_id = $request->entrega_id;//este valor se envia desde el formulario
          $k->salida_id =  $q->id; //este lo acabas de generar con SalidaProducto
          $k->save();
         return redirect()->route("entrega",[$request->entrega_id]);
@@ -93,9 +93,16 @@ class EntregaController extends Controller
         //  $s->delete();
 
         // 
-         PivotEntregaSalida::destroy($r->id);
+          PivotEntregaSalida::destroy($r->id);
         //  SalidaProducto::destroy($r->$id);
+        // return ['r'=>$r];
+        //    return redirect()->route('entrega',[$r->entrega_id]); 
+        // return back();
 
-          return redirect()->route("entrega",[$r->id]); 
-    }
+    //     $pivot = SalidaProducto::where('salida_id', $r->salida_id)->delete();       
+
+    //     $salidas = PivotEntregaSalida::find($r->id);
+    //     $salidas->delete();
+    
+     }
 }
