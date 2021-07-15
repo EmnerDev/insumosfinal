@@ -2,10 +2,7 @@ function actualizar(){
     location.reload();
 }
 guardar_nuevo_insumo = function (tipo,form_id){  
-    if( $("#nuevo_producto").val()=="" || $("#nuevo_cantidad").val()=="" || $("#nuevo_descripcion").val()=="" ){
-        alert("Hay campo(s) vacio(s)");
-        return false;
-    }  
+ 
     var $form=$(`#${form_id}`).serializeArray();   
     $.each($form, function (ind, elem) { 
         if(elem.value=="") alert("Llene todos los campos"); return false; 
@@ -20,12 +17,11 @@ guardar_nuevo_insumo = function (tipo,form_id){
             $("#nuevo_insumo_modal").modal("hide");
             $('body').removeClass('modal-open');
             $(".modal-backdrop").remove();
-            $("#nuevo_producto").val("");
-            $("#nuevo_cantidad").val("");
-            $("#nuevo_descripcion").val("");
+            limpiar_formulario();
             $("#agregar_insumo_modal").modal("hide");
             $('body').removeClass('modal-open');
             $(".modal-backdrop").remove();
+            limpiar_formulario2();
             
              actualizar_tablas();
             Swal.fire(    
@@ -148,4 +144,20 @@ actualizar_tablas = function (){
     // $('#diplomas_entregados').DataTable().ajax.reload();
     // $('#ajustes_fechas').DataTable().ajax.reload();
     // $('#ajustes_diplomas').DataTable().ajax.reload();
+}
+
+limpiar_formulario = function(){
+
+    $('#nuevo_producto').val('');
+    $('#nuevo_cantidad').val('');
+    $('#nuevo_descripcion').val('');
+
+}
+limpiar_formulario2 = function(){
+
+    $('#agregar_producto').val('');
+    $('#location1').val('');
+    $('#agregar_cantidad').val('');
+    $('#agregar_descripcion').val('');
+
 }

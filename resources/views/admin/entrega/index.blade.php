@@ -46,7 +46,7 @@
                 <div class="form-group row">
                     <input type="number" placeholder="Cant" name="cantidad" id="id_cantidad" class="col-sm-2 form-control"> 
                  
-                    <select class="form-control col-sm-7" id="id_producto" name="producto_id">
+                    <select class="form-control col-sm-7" id="id_producto" name="producto_id" required>
                         <option >Abre y selecciona producto</option>   
                             @foreach($productos as $t)
                         <option value="{{$t->id}}">{{$t->nombre}} - {{$t->presentacion->nombre}}</option>                     

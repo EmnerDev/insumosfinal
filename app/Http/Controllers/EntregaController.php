@@ -87,22 +87,11 @@ class EntregaController extends Controller
     public function destroy(Request $r)
     {
         //   return $r;
-        //   return $t;
-        //  $s=PivotEntregaSalida::findOrFail($id);
-        //  $s=PivotEntregaSalida::destroy($id);   
-        //  $s->delete();
-
-        // 
+       
+          $salida=PivotEntregaSalida::find($r->id);
+          SalidaProducto::destroy($salida->salida_id);
           PivotEntregaSalida::destroy($r->id);
-        //  SalidaProducto::destroy($r->$id);
-        // return ['r'=>$r];
-        //    return redirect()->route('entrega',[$r->entrega_id]); 
-        // return back();
-
-    //     $pivot = SalidaProducto::where('salida_id', $r->salida_id)->delete();       
-
-    //     $salidas = PivotEntregaSalida::find($r->id);
-    //     $salidas->delete();
+     
     
      }
 }

@@ -16,7 +16,7 @@
               <div class="form-group">
                   <label for="personal_nuevo" class="col-sm-12 col-form-label">Personal</label>
                   <div class="col-sm-12">
-                      <select class="form-control" id="personal" name="user_id" required>
+                      <select class="form-control" id="personal" name="user_id" style="width: 100%" required>
                           <option value="">Seleccione una opción</option>   
                           @foreach($personal as $p)
                               <option value="{{$p->id}}">{{$p->dni}} - {{$p->nombres}} {{$p->apellidos}}</option>                     
@@ -35,7 +35,7 @@
               <div class="form-group">
                   <label  class="col-sm-12 col-form-label">Observaciones</label>
                   <div class="col-sm-12">
-                  <textArea placeholder="escribir aquí" class="form-control" name="descripcion"></textArea>
+                  <textArea placeholder="escribir aquí" class="form-control" name="descripcion" required></textArea>
                   </div>
               </div>  
 

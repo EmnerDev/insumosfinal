@@ -14,7 +14,7 @@
             
         <label for="producto_inventario" class="col-sm-12 col-form-label">Producto</label>
             <div class="col-sm-12">
-            <select class="form-control" data-live-search="true" id="nuevo_producto" name="producto_id">
+            <select class="form-control" data-live-search="true" id="editar_producto" name="producto_id">
             <option>Abre y selecciona una opcion</option>   
             @foreach($productos as $t)
              

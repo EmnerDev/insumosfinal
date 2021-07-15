@@ -65,7 +65,7 @@
                                             <th>Cantidad</th>
                                             <th>Presentacion</th>  
                                             <th>Descripcion</th>
-                                            <th>fecha</th> 
+                                            <th>Fecha</th> 
                                             <th>Editar</th>
                                             <th>Eliminar</th>  
 
@@ -87,7 +87,7 @@
                                             <th>Cantidad</th>
                                             <th>Presentacion</th>  
                                             <th>Descripcion</th>
-                                            <th>fecha</th>  
+                                            <th>Fecha</th>  
 
                                             </tr>
                                         </thead>
