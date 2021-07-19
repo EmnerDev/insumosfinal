@@ -183,19 +183,35 @@ class InventarioController extends Controller
         }
         return ['tipo'=>$tipo,'r'=>$r];
     }
-    public function actualizar_cantidad($idproducto){
-        // return 
-        // $ingreso = IngresoProducto::sum('cantidad')->groupBy('producto_id')->get();
+    public function actualizar_cantidad($id){
+      
+        //  $ingreso = IngresoProducto::sum('cantidad')->groupBy('producto_id')->get();
 
-        // $salida= DB::table('salida_productos')
-        // ->select(DB::raw('sum("cantidad") as total'))
-        // ->groupBy('cantidad')
-        // ->first();
+        //  $salida= DB::table('salida_productos')
+        //  ->select(DB::raw('sum("cantidad") as total'))
+        //  ->groupBy('cantidad')
+        //  ->first();
 
-        // $total= $ingreso->total- $salida->total; 
-        // $producto=Producto::find($idproducto);
-        // $producto->cantidad=$total;
-        // $producto->save();
+        //  $total= $ingreso->total- $salida->total; 
+        //  $producto=Producto::find($idproducto);
+        //  $producto->cantidad=$total;
+        //  $producto->save();
+
+//           $salida=DB::table('salida_productos')
+//           ->join('productos', 'salida_productos.id_producto', '=', 'productos.id')
+//           ->where('salida_productos.salida_id', '=', $id)
+//         //->whereBetween('salida_productos.fecha', array($fechain,$fechater))
+//           ->select('productos.nombre',DB::raw('sum(salida_productos.cantidad) as cantidad'),DB::raw('sum(total) as total'))
+//           ->groupBy('salida_productos.id_producto')
+//           ->get();
+//  return $salida;
+ $total=Producto::where('id','=',$id)->sum('cantidad');
+ $ingreso=IngresoProducto::where('producto_id','=',$id)->sum('cantidad');
+ $salida=SalidaProducto::where('producto_id','=',$id)->sum('cantidad');
+
+ $totalingreso= $total+$ingreso;
+ $totalsalida= $total-$salida;
+ return $totalingreso; 
 
     }
 }
