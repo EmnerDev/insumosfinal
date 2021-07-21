@@ -42,7 +42,7 @@ class EntregaController extends Controller
     }
     public function nuevo(Request $request)
     {
-        
+
           $q = new SalidaProducto;
           $q->producto_id = $request->producto_id;
           $q->cantidad = $request->cantidad;
@@ -53,6 +53,8 @@ class EntregaController extends Controller
          $k->entrega_id = $request->entrega_id;//este valor se envia desde el formulario
          $k->salida_id =  $q->id; //este lo acabas de generar con SalidaProducto
          $k->save();
+        app(\App\Http\Controllers\InventarioController::class)->actualizar_cantidad($request->producto_id);
+      
         return redirect()->route("entrega",[$request->entrega_id]);
     }
 

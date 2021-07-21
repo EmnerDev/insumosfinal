@@ -47,7 +47,7 @@ Route::get('/inventario/ingreso/{id}/{tipo}/editar', 'InventarioController@edit'
 Route::post('/inventario/ingreso/{id}/{tipo}/actualizar', 'InventarioController@update')->name('inventario.update')->middleware('auth');
 Route::post('/inventario/{tipo}/eliminar', 'InventarioController@destroy')->middleware('auth');
 
-Route::get('/test/{id}', 'InventarioController@actualizar_cantidad')->name('inventario.actualizar_cantidad')->middleware('auth');
+//Route::get('/test/{id}', 'InventarioController@actualizar_cantidad')->name('inventario.actualizar_cantidad')->middleware('auth');
 
 //ruta reportes
 Route::get('/reportes/total', 'ReporteController@generar')->name('reportes.total');

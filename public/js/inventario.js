@@ -22,7 +22,7 @@ guardar_nuevo_insumo = function (tipo,form_id){
             $('body').removeClass('modal-open');
             $(".modal-backdrop").remove();
             limpiar_formulario2();
-            
+            actualizar();
              actualizar_tablas();
             Swal.fire(    
                 '¡Guardado!',
