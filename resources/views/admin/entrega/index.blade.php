@@ -36,11 +36,25 @@
         </div>
    
     </div>   
+
+    
     <form id="agregar_producto" method="POST" action="{{route('entre_n')}}"> 
       @csrf 
- 
+    
     <div class="card">
+    
         <div class="card-body">
+            <div class="container">
+            @if(session('flash'))
+         <div class="alert alert-danger" role="alert">
+            {{ session('flash') }}
+            <button type="button" class="close" data-dismiss="alert" alert-label="close">
+            <span aria-hidden="true">&times</span>
+            </button>
+         </div> 
+        @endif 
+            </div>
+       
             <h5 class="card-title">INSUMOS</h5><br><br>
            
                 <div class="form-group row">
@@ -138,7 +152,7 @@
                 success:function(data){
                     console.log(data);
                     // $('#zero_config').DataTable().ajax.reload();
-                   
+                    location.reload();  
                     Swal.fire(
                         '¡Eliminado!',
                         'Se Eliminaron los datos correctamente',
@@ -149,7 +163,7 @@
                 error: function(data){
                 }
             });
-            location.reload();  
+            
         }
     })
 }

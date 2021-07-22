@@ -42,20 +42,28 @@ class EntregaController extends Controller
     }
     public function nuevo(Request $request)
     {
+        $cantidad1=Producto::find($request->cantidad);
+        // $cantidad2=SalidaProducto::find($request->cantidad);
 
-          $q = new SalidaProducto;
-          $q->producto_id = $request->producto_id;
-          $q->cantidad = $request->cantidad;
-          $q->save();
-     
-        // para guardar en dos tablas distintas; se guarda de uno en uno
-         $k = new PivotEntregaSalida;
-         $k->entrega_id = $request->entrega_id;//este valor se envia desde el formulario
-         $k->salida_id =  $q->id; //este lo acabas de generar con SalidaProducto
-         $k->save();
-        app(\App\Http\Controllers\InventarioController::class)->actualizar_cantidad($request->producto_id);
+        if($cantidad1 >= $request->cantidad) {
+
+            $q = new SalidaProducto;
+            $q->producto_id = $request->producto_id;
+            $q->cantidad = $request->cantidad;
+            $q->save();
+       
+          // para guardar en dos tablas distintas; se guarda de uno en uno
+           $k = new PivotEntregaSalida;
+           $k->entrega_id = $request->entrega_id;//este valor se envia desde el formulario
+           $k->salida_id =  $q->id; //este lo acabas de generar con SalidaProducto
+           $k->save();
+          app(\App\Http\Controllers\InventarioController::class)->actualizar_cantidad($request->producto_id);
+        
+          return redirect()->route("entrega",[$request->entrega_id]);
+        } else {
+            return back()->with('flash', 'Stock insuficiente para realizar la entrega');
+        }
       
-        return redirect()->route("entrega",[$request->entrega_id]);
     }
 
     public function show($id)
