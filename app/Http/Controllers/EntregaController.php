@@ -42,10 +42,10 @@ class EntregaController extends Controller
     }
     public function nuevo(Request $request)
     {
-        $cantidad1=Producto::find($request->cantidad);
+      $cantidad=Producto::find($request->cantidad);
         // $cantidad2=SalidaProducto::find($request->cantidad);
 
-        if($cantidad1 >= $request->cantidad) {
+        if($cantidad >= $request->cantidad ) {
 
             $q = new SalidaProducto;
             $q->producto_id = $request->producto_id;
@@ -103,5 +103,5 @@ class EntregaController extends Controller
           PivotEntregaSalida::destroy($r->id);
      
     
-     }
+    }
 }
