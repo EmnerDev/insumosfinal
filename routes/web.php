@@ -31,10 +31,10 @@ Route::get('/admin/index/data', 'AdminController@index_data')->name('admin.data'
 // usuario o personal 
 
 Route::get('/personal', 'PersonalController@personal')->name('personal')->middleware('auth');
-Route::post('/personal/update/{id}', 'PersonalController@update')->where(['id' => '[0-9]+'])->name('personal.update')->middleware(['auth']);
 Route::get('/personal/index/data', 'PersonalController@data')->name('personal.data')->middleware('auth');
 Route::post('/personal/index/store', 'PersonalController@store')->name('personal.store')->middleware('auth');
 Route::get('/personal/editar/{id}', 'PersonalController@edit')->where(['id' => '[0-9]+'])->name('personal.editar')->middleware(['auth']);
+Route::post('/personal/update/{id}', 'PersonalController@update')->where(['id' => '[0-9]+'])->name('personal.update')->middleware(['auth']);
 Route::post('/personal/eliminar', 'PersonalController@destroy')->middleware('auth'); 
 
 
