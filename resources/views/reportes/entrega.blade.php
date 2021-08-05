@@ -1,12 +1,13 @@
 @extends('reportes.plantilla')
 @section('contenido')
 <br> 
-<h5 align="center" style="margin:0;padding:0;color:blue;text-transform: uppercase;">REPORTE SALIDA DE INSUMOS</h5><br>
+<h5 align="center" style="margin:0;padding:0;color:blue;text-transform: uppercase;">REPORTE ENTREGA DE INSUMOS</h5><br>
 	<table class="table">
 		<thead>
 			<tr>
 				<th>N°</th>
-				<th>Nombre</th>
+				<th>Usuario</th>
+				<th>producto</th>
 				<th>Cantidad</th>
                 <th>Presentacion</th>
                 <th>Descripcion</th>
@@ -14,14 +15,15 @@
 			</tr>
 		</thead>
 		<tbody>
-			@foreach($salida_productos as $key => $s)
+			@foreach($pivot as $key => $e)
 			<tr>
 				<td align="center">{{ ($key+1) }}</td>
-				<td align="center">{{ $s->producto->nombre }}</td>
-				<td align="center">{{ $s->cantidad }}</td>
-                <td align="center">{{ $s->producto->presentacion->nombre}}</td>
-                <td align="center">{{ $s->descripcion}}</td>
-                <td align="center">{{ $s->created_at}}</td>
+				<td align="center">{{ $e->entrega->user->nombres }}</td>
+				<td align="center">{{ $e->salidaproducto->producto->nombre }}</td>
+				<td align="center">{{ $e->salidaproducto->cantidad }}</td>
+                <td align="center">{{ $e->salidaproducto->producto->presentacion->nombre}}</td>
+                <td align="center">{{ $e->descripcion}}</td>
+                <td align="center">{{ $e->created_at}}</td>
 			</tr>
 			@endforeach
 		</tbody>

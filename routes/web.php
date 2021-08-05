@@ -53,6 +53,7 @@ Route::post('/inventario/{tipo}/eliminar', 'InventarioController@destroy')->midd
 Route::get('/reportes/total', 'ReporteController@generar')->name('reportes.total');
 Route::get('/reportes/entrada', 'ReporteController@reporte_ingreso')->name('reportes.entrada');
 Route::get('/reportes/salida', 'ReporteController@reporte_salida')->name('reportes.salida');
+Route::get('/reportes/entrega', 'ReporteController@reporte_entrega')->name('reportes.entrega');
 
 //entregas
 

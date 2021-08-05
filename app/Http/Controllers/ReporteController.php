@@ -36,10 +36,9 @@ class ReporteController extends Controller
 
     }
     public function reporte_entrega(){
-        $entrega = Entrega::find($id);
-        $productos = Producto::get();
-        $pivot = PivotEntregaSalida::where('entrega_id',$id)->get();
-        $pdf   = PDF::loadView('reportes.entrega', compact('reporte_entrega'));   
+       
+        $pivot = PivotEntregaSalida::where("id", "desc")->get();
+        $pdf   = PDF::loadView('reportes.entrega', compact('pivot'));   
 
     	return $pdf->stream('productos-list.pdf');
     }
