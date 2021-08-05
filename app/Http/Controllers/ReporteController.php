@@ -10,6 +10,8 @@ use App\model\Producto;
 use App\model\Presentacion;
 use App\model\IngresoProducto;
 use App\model\SalidaProducto;
+use App\model\Entrega;
+use App\model\PivotEntregaSalida;
 
 class ReporteController extends Controller
 {
@@ -32,5 +34,13 @@ class ReporteController extends Controller
 
     	return $pdf->stream('productos-list.pdf');
 
+    }
+    public function reporte_entrega(){
+        $entrega = Entrega::find($id);
+        $productos = Producto::get();
+        $pivot = PivotEntregaSalida::where('entrega_id',$id)->get();
+        $pdf   = PDF::loadView('reportes.entrega', compact('reporte_entrega'));   
+
+    	return $pdf->stream('productos-list.pdf');
     }
 }
