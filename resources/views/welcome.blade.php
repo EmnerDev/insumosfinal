@@ -102,12 +102,17 @@
                 <div class="bg-ligh">
                     <h1> ¡Insumo-Control de inventario!</h1><br>
                     <img src="{{asset('/img/inventario2.png')}}" height="420px">
-                    <br><br>                   
+                    <br><br>  
+                    <p class="text-dark h6"> Ingrese el número de <u>DNI</u>. Luego dar clic al boton <i>"Buscar"</i>.
+                        <!-- <br><a href="#" class="text-danger">Clic aquí para ver el video tutorial</a> -->
+                   </p>                 
                 </div>
                 
-                <div class="row justify-content-center" >                   
+                <div class="row" >                   
                     <!-- <button type="button" class="btn btn-success col-sm-4 m-2" href="{{route('index')}}">Ingresar</button> -->
-                    <a href="{{route('index')}}" class="btn btn-success col-sm-4 m-2">Ingresar</a>
+                    <input type="text" placeholder="DNI" class="form-control text-center input col-sm-4 m-2" id="dni" maxlength="8" margin-button:10px;" autocomplete="off">
+                    <button class="btn btn-success btn-lg btn-block col-sm-3 m-1" onclick="search_insumos()"> Buscar</button>
+                    <a href="{{route('index')}}" class="btn-lg btn-success col-sm-3 m-1">Ingresar</a>
                 </div><br>
                 <div id="mensaje" class="bg-danger text-white"> </div>
                 <div id="resultado"> </div>
