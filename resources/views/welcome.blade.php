@@ -73,9 +73,9 @@
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
-                        @if (Route::has('register'))
+                        <!-- @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
-                        @endif
+                        @endif -->
                     @endauth
                 </div>
                 </div>
@@ -103,16 +103,16 @@
                     <h1> ¡Insumo-Control de inventario!</h1><br>
                     <img src="{{asset('/img/inventario2.png')}}" height="420px">
                     <br><br>  
-                    <p class="text-dark h6"> Ingrese el número de <u>DNI</u>. Luego dar clic al boton <i>"Buscar"</i>.
+                    <!-- <p class="text-dark h6"> Ingrese el número de <u>DNI</u>. Luego dar clic al boton <i>"Buscar"</i>.
                         <!-- <br><a href="#" class="text-danger">Clic aquí para ver el video tutorial</a> -->
-                   </p>                 
+                   <!-- </p>                -->
                 </div>
                 
-                <div class="row" >                   
+                <div class="row-center" >                   
                     <!-- <button type="button" class="btn btn-success col-sm-4 m-2" href="{{route('index')}}">Ingresar</button> -->
-                    <input type="text" placeholder="DNI" class="form-control text-center input col-sm-4 m-2" id="dni" maxlength="8" margin-button:10px;" autocomplete="off">
-                    <button class="btn btn-success btn-lg btn-block col-sm-3 m-1" onclick="search_insumos()"> Buscar</button>
-                    <a href="{{route('index')}}" class="btn-lg btn-success col-sm-3 m-1">Ingresar</a>
+                  
+                    <!-- <a href="{{route('index')}}" class="btn-lg btn-success col-sm-3 m-1"> Buscar</button> -->
+                    <a href="{{route('index')}}" class="btn-lg btn-success col-sm-3 m-1">Ver Insumos</a>
                 </div><br>
                 <div id="mensaje" class="bg-danger text-white"> </div>
                 <div id="resultado"> </div>
@@ -126,6 +126,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>  
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        
+        <script src="{{ asset('js/welcome.js') }}"></script>
+
     </body>
 </html>

@@ -21,9 +21,9 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index');//->name('index');
 
-Route::get('/index', 'AdminController@index')->name('index')->middleware('auth');
+Route::get('/index', 'AdminController@index')->name('index');
 
-Route::get('/admin/index/data', 'AdminController@index_data')->name('admin.data')->middleware('auth');
+Route::get('/admin/index/data', 'AdminController@index_data')->name('admin.data');
 // Route::post('/admin/index/{id}/index_nuevo', 'AdminController@index_nuevo')->name('admin.index_nuevo')->middleware('auth');
 
 
@@ -65,3 +65,7 @@ Route::post('/salidas/entrega_p', 'EntregaController@nuevo')->name('entre_n')->m
 Route::get('/salidas/entrega/{id}/actualizar', 'EntregaController@index')->name('entrega')->middleware('auth');
 
 Route::post('/salidas/eliminar', 'EntregaController@destroy')->middleware('auth');
+
+
+
+Route::get('/search_insumos/{dni}/insumos','HomeController@search_insumos');
