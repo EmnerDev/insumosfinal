@@ -42,7 +42,8 @@ class EntregaController extends Controller
     }
     public function nuevo(Request $request)
     {
-      $cantidad=Producto::find($request->cantidad);
+        
+        $cantidad=Producto::find($request->producto_id)->cantidad;
         // $cantidad2=SalidaProducto::find($request->cantidad);
 
         if($cantidad >= $request->cantidad ) {

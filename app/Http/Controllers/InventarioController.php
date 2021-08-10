@@ -26,6 +26,8 @@ class InventarioController extends Controller
 
     public function entrada_productos()
     {
+        //aqui debe actualizar tambien
+        $this->actualizar_todo();
         $productos = Producto::all();
         return view('inventario.ingreso', compact('productos'));
     }
@@ -189,6 +191,12 @@ class InventarioController extends Controller
                 break;
         }
         return ['tipo' => $tipo, 'r' => $r];
+    }
+    public function actualizar_todo(){
+        $query = Producto::all();
+        foreach($query as $valor){
+            $this->actualizar_cantidad($valor->id);
+        }
     }
     public function actualizar_cantidad($id)
     {

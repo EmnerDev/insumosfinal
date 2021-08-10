@@ -21,9 +21,9 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index');//->name('index');
 
-Route::get('/index', 'AdminController@index')->name('index')->middleware('auth');
+Route::get('/index', 'AdminController@index')->name('index');
 
-Route::get('/admin/index/data', 'AdminController@index_data')->name('admin.data')->middleware('auth');
+Route::get('/admin/index/data', 'AdminController@index_data')->name('admin.data');
 // Route::post('/admin/index/{id}/index_nuevo', 'AdminController@index_nuevo')->name('admin.index_nuevo')->middleware('auth');
 
 
@@ -31,10 +31,10 @@ Route::get('/admin/index/data', 'AdminController@index_data')->name('admin.data'
 // usuario o personal 
 
 Route::get('/personal', 'PersonalController@personal')->name('personal')->middleware('auth');
-Route::post('/personal/update/{id}', 'PersonalController@update')->where(['id' => '[0-9]+'])->name('personal.update')->middleware(['auth']);
 Route::get('/personal/index/data', 'PersonalController@data')->name('personal.data')->middleware('auth');
 Route::post('/personal/index/store', 'PersonalController@store')->name('personal.store')->middleware('auth');
 Route::get('/personal/editar/{id}', 'PersonalController@edit')->where(['id' => '[0-9]+'])->name('personal.editar')->middleware(['auth']);
+Route::post('/personal/update/{id}', 'PersonalController@update')->where(['id' => '[0-9]+'])->name('personal.update')->middleware(['auth']);
 Route::post('/personal/eliminar', 'PersonalController@destroy')->middleware('auth'); 
 
 
@@ -53,6 +53,7 @@ Route::post('/inventario/{tipo}/eliminar', 'InventarioController@destroy')->midd
 Route::get('/reportes/total', 'ReporteController@generar')->name('reportes.total');
 Route::get('/reportes/entrada', 'ReporteController@reporte_ingreso')->name('reportes.entrada');
 Route::get('/reportes/salida', 'ReporteController@reporte_salida')->name('reportes.salida');
+Route::get('/reportes/{id}/entrega', 'ReporteController@reporte_entrega')->name('reportes.entrega');
 
 //entregas
 
@@ -64,3 +65,7 @@ Route::post('/salidas/entrega_p', 'EntregaController@nuevo')->name('entre_n')->m
 Route::get('/salidas/entrega/{id}/actualizar', 'EntregaController@index')->name('entrega')->middleware('auth');
 
 Route::post('/salidas/eliminar', 'EntregaController@destroy')->middleware('auth');
+
+
+
+Route::get('/search_insumos/{dni}/insumos','HomeController@search_insumos');

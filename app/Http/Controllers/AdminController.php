@@ -52,12 +52,18 @@ class AdminController extends Controller
                             //2. No puedes tenr unas comillas sobre otras '''', se usan las otras ' " " '
                             //En este caso, como necesitamos generar la ruta, podrias hacerlo antes de ingresarlo al HTML o generarlo manualmente
                             $ruta = route("entrega",$dato->id); //listo tengo ootras dudas :v 
-                             $editar = "<a href='$ruta' class='btn btn-sm btn-success'>Editar</a>"; 
+                            $ruta2 = route("reportes.entrega",$dato->id);
+                             $editar = "<a href='$ruta' class='btn btn-sm btn-success'>Editar</a> <a href='$ruta2' class='btn btn-sm btn-warning'>Reporte</a>";
+                              $ver= "<a href='$ruta2' class='btn btn-sm btn-success'>Ver Insumos</a>";
                             // $eliminar = "<button class='btn btn-sm btn-danger' onclick='eliminar_personal($dato->id)'>Eliminar</button>";
 
                             // $data['aaData'][] = [  $usuarios_all, $producto, $cantidad, $presentacion,  $descripcion,$fecha];
-
+                            if(auth()->check()){
                             $data['aaData'][] = [  $fecha, $personal, $descripcion, $editar];
+                            }
+                            else{
+                                $data['aaData'][] = [  $fecha, $personal, $descripcion,$ver];
+                            }
         }
         return json_encode($data, true);      
     }
