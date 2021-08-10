@@ -2,7 +2,7 @@
 @section('css')
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<!-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> -->
 @endsection  
 @section('content')
 
@@ -119,7 +119,7 @@
  <script src="{{ asset('js/admin.js') }}"></script>
  <!-- <script src="{{ asset('js/mi-script.js') }}"></script> -->
  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>  
+ <!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>   -->
 <script>
     var tabla_insumos = ['2','222'];
     $('#personal').select2();

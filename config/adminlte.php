@@ -280,20 +280,23 @@ return [
         //     'icon' => 'fas fa-fw fa-lock',
         // ],
          [
-             'text'    => 'Reportes',
-             'icon'    => 'fas fa-folder',
+             'text'    => 'Reporte Insumos',
+             'icon'    => 'fas fa-paste',
              'submenu' => [
                 [
                      'text' => 'Insumo Total',
                      'url'  => '/reportes/total',
+                     'icon'    => 'far fa-file-pdf',
                  ],
                  [
                      'text'    => 'Ingreso de Insumos',
                      'url'     => '/reportes/entrada',
+                     'icon'    => 'far fa-file-pdf',
                  ],
                  [
                     'text'    => 'Salida de Insumos',
                     'url'     => '/reportes/salida',
+                    'icon'    => 'far fa-file-pdf',
                 ],
                 ],
             ],

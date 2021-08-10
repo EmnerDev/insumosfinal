@@ -16,11 +16,12 @@
             <div class="card">
 
 
-            
+                @if(auth()->check())
                  <div class="card-header">Entrega de Insumos:   
                     <button class="btn btn-primary btn-sm mb-2" style="background-color:#009999;" data-toggle="modal" data-target="#modal_nuevo">Agregar</button>
                    
                 </div>
+                @endif
                 <div class="card-body">   
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -68,7 +69,7 @@
  <script src="{{ asset('js/admin.js') }}"></script>
  <!-- <script src="{{ asset('js/mi-script.js') }}"></script> -->
  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>  
+ <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
     $('#personal').select2({ dropdownParent: "#modal_nuevo" });
     //$('#js-example-basic-single').select2();

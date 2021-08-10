@@ -33,7 +33,7 @@ class AdminController extends Controller
     public function index_data(){
 
        // return $tipo;
-        $query = Entrega::get();
+        $query = Entrega::orderBy("id", "desc")->get();
         if($query->count()<1)
         return $this->data_null;
         
@@ -53,17 +53,14 @@ class AdminController extends Controller
                             //En este caso, como necesitamos generar la ruta, podrias hacerlo antes de ingresarlo al HTML o generarlo manualmente
                             $ruta = route("entrega",$dato->id); //listo tengo ootras dudas :v 
                             $ruta2 = route("reportes.entrega",$dato->id);
-                             $editar = "<a href='$ruta' class='btn btn-sm btn-success'>Editar</a> <a href='$ruta2' class='btn btn-sm btn-warning'>Reporte</a>";
-                              $ver= "<a href='$ruta2' class='btn btn-sm btn-success'>Ver Insumos</a>";
+                            $editar = "<a href='$ruta' class='btn btn-sm btn-success'>Editar</a> <a href='$ruta2' class='btn btn-sm btn-warning'>Reporte</a>";
+                            // $ver= "<a href='$ruta2' class='btn btn-sm btn-success'>Ver Insumos</a>";
                             // $eliminar = "<button class='btn btn-sm btn-danger' onclick='eliminar_personal($dato->id)'>Eliminar</button>";
 
                             // $data['aaData'][] = [  $usuarios_all, $producto, $cantidad, $presentacion,  $descripcion,$fecha];
-                            if(auth()->check()){
+                           
                             $data['aaData'][] = [  $fecha, $personal, $descripcion, $editar];
-                            }
-                            else{
-                                $data['aaData'][] = [  $fecha, $personal, $descripcion,$ver];
-                            }
+                            
         }
         return json_encode($data, true);      
     }

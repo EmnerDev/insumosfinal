@@ -21,9 +21,9 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index');//->name('index');
 
-Route::get('/index', 'AdminController@index')->name('index');
+Route::get('/index', 'AdminController@index')->name('index')->middleware('auth');;
 
-Route::get('/admin/index/data', 'AdminController@index_data')->name('admin.data');
+Route::get('/admin/index/data', 'AdminController@index_data')->name('admin.data')->middleware('auth');;
 // Route::post('/admin/index/{id}/index_nuevo', 'AdminController@index_nuevo')->name('admin.index_nuevo')->middleware('auth');
 
 
