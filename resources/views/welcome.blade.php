@@ -111,7 +111,7 @@
                 <div class="row" >                   
                     <!-- <button type="button" class="btn btn-success col-sm-4 m-2" href="{{route('index')}}">Ingresar</button> -->
                     <input type="text" placeholder="Ingrese DNI" class="form-control text-center input col-sm-5 m-2" id="dni" maxlength="10" autofocus autocomplete="off">
-                    <button class="btn btn-success col-sm-4 m-2" onclick="search_insumos()"> Buscar</button> 
+                    <button type="submit" class="btn btn-success col-sm-4 m-2" onclick="search_insumos()"> Buscar</button> 
                     <!-- <a href="{{route('index')}}" class="btn-lg btn-success col-sm-3 m-1"> Buscar</button> -->
                     <!-- <a href="{{route('index')}}" class="btn-lg btn-success col-sm-3 m-1">Ver Insumos</a> -->
                 </div><br>

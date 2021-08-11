@@ -6,7 +6,7 @@ function search_insumos(){
     
     if(dni=="") {alert("Llenar el campo vacio"); return false}
 
-    $.get(`/search_insumos/${dni}/diploma`,function(data){
+    $.get(`/search_insumos/${dni}/insumos`,function(data){
             var $html =    data; 
             $("#resultado").html($html);
     });		        

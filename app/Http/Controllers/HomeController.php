@@ -7,6 +7,7 @@ use App\model\Producto;
 use App\model\Entrega;
 use App\model\SalidaProducto;
 use App\model\PivotEntregaSalida;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -34,11 +35,12 @@ class HomeController extends Controller
 
         $insumos = User::where('dni',$dni)->first();
         if($insumos) {
-            $search = PivotEntregaSalida::where('entrega_id',$insumos->id)->first();
-            if( (boolean) $search){
-                return view('welcome.datos',compact('search'));
-            }
+            $entrega = Entrega::where('user_id',$insumos->id)->first();  
+            $productos = Producto::get();        
+            $pivot = PivotEntregaSalida::where('entrega_id',$insumos->id)->get();
            
+                return view('welcome.datos',compact('entrega','productos','pivot'));
+                       
         }
         return view('welcome.datos2');
 
