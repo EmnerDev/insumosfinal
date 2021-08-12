@@ -21,9 +21,9 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index');//->name('index');
 
-Route::get('/index', 'AdminController@index')->name('index')->middleware('auth');;
+Route::get('/index', 'AdminController@index')->name('index')->middleware('auth');
 
-Route::get('/admin/index/data', 'AdminController@index_data')->name('admin.data')->middleware('auth');;
+Route::get('/admin/index/data', 'AdminController@index_data')->name('admin.data')->middleware('auth');
 // Route::post('/admin/index/{id}/index_nuevo', 'AdminController@index_nuevo')->name('admin.index_nuevo')->middleware('auth');
 
 
@@ -66,6 +66,6 @@ Route::get('/salidas/entrega/{id}/actualizar', 'EntregaController@index')->name(
 
 Route::post('/salidas/eliminar', 'EntregaController@destroy')->middleware('auth');
 
-
-
-Route::get('/search_insumos/{dni}/insumos','HomeController@search_insumos');
+//  Route::get('/index', 'VerInsumosController@index')->name('index');
+Route::get('/search_insumos/{dni}/insumos','VerInsumosController@search_insumos');
+// Route::get('/welcome/data', 'VerInsumosController@insumos_data')->name('welcome.data'); 

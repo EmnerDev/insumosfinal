@@ -15,13 +15,12 @@
         <div class="col-md-12">
             <div class="card">
 
-
-                @if(auth()->check())
+               
                  <div class="card-header">Entrega de Insumos:   
                     <button class="btn btn-primary btn-sm mb-2" style="background-color:#009999;" data-toggle="modal" data-target="#modal_nuevo">Agregar</button>
                    
                 </div>
-                @endif
+              
                 <div class="card-body">   
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">

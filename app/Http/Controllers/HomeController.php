@@ -31,19 +31,19 @@ class HomeController extends Controller
         return view('welcome');
     }
 
-    public function search_insumos($dni){
+    // public function search_insumos($dni){
 
-        $insumos = User::where('dni',$dni)->first();
-        if($insumos) {
-            $entrega = Entrega::where('user_id',$insumos->id)->first();  
-            $productos = Producto::get();        
-            $pivot = PivotEntregaSalida::where('entrega_id',$insumos->id)->get();
+    //     $insumos = User::where('dni',$dni)->first();
+    //     if($insumos) {
+    //         $entrega = Entrega::where('user_id',$insumos->id)->first();  
+    //         $productos = Producto::get();        
+    //         $pivot = PivotEntregaSalida::where('entrega_id',$insumos->id)->get();
            
-                return view('welcome.datos',compact('entrega','productos','pivot'));
+    //             return view('welcome.datos',compact('entrega','productos','pivot'));
                        
-        }
-        return view('welcome.datos2');
+    //     }
+    //     return view('welcome.datos2');
 
 
-    }
+    // }
 }
