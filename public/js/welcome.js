@@ -11,3 +11,6 @@ function search_insumos(){
             $("#resultado").html($html);
     });		        
 }
+// $( "#content" ).on( "click", ".eliminar", function() {
+//     console.log( $( this ).data("id") );
+// });

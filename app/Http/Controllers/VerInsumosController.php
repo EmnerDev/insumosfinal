@@ -8,6 +8,7 @@ use App\model\Entrega;
 use App\model\SalidaProducto;
 use App\model\PivotEntregaSalida;
 use App\User;
+use DB;
 
 class VerInsumosController extends Controller
 {
@@ -38,10 +39,10 @@ class VerInsumosController extends Controller
         $insumos = User::where('dni',$dni)->first();
         if($insumos) {
             $entrega = Entrega::where('user_id',$insumos->id)->get();  
-            // $productos = Producto::get();        
-            $pivot = PivotEntregaSalida::where('entrega_id',$insumos->id)->get();
-           
-                return view('welcome.datos',['entrega' => $entrega],['pivot' => $pivot] );
+            $productos = Producto::get();        
+            $pivot = PivotEntregaSalida::where('entrega_id',$entrega[0]->id)->get();
+         
+                return view('welcome.datos',['entrega' => $entrega],compact('productos','pivot'));
                        
         }
         return view('welcome.datos2');

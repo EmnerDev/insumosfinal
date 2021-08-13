@@ -37,7 +37,7 @@
                                     </thead>
 									@foreach($entrega as $e)
                                     <tbody>
-										
+										<tr>
 											<td>{{$e->fecha}}</td>
 											<td>{{$e->user->dni}}</td>
 											<td>{{$e->user->nombres}} {{$e->user->apellidos}}</td>  
@@ -46,7 +46,7 @@
 											<button class="btn btn-success btn-sm mb-2" data-toggle="modal" data-target="#modal_vista">Ver Insumos</button>
 											
 											</td>
-										
+                                        </tr>
                                     </tbody>
                                     @endforeach
                                 </table>
