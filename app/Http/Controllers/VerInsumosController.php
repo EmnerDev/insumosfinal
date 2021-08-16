@@ -38,7 +38,7 @@ class VerInsumosController extends Controller
 
         $insumos = User::where('dni',$dni)->first();
         if($insumos) {
-            $entrega = Entrega::where('user_id',$insumos->id)->get();  
+            $entrega = Entrega::where('user_id',$insumos->id)->orderBy("id", "desc")->get();  
             $productos = Producto::get();        
             $pivot = PivotEntregaSalida::where('entrega_id',$entrega[0]->id)->get();
          

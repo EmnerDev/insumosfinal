@@ -43,10 +43,22 @@
 											<td>{{$e->user->nombres}} {{$e->user->apellidos}}</td>  
 											<td>{{$e->descripcion}}</td> 
 											<td>
-											<button class="btn btn-success btn-sm mb-2" data-toggle="modal" data-target="#modal_vista">Ver Insumos</button>
+											<button  class="btn btn-success btn-sm mb-2" data-toggle="modal" type="submit" data-target="#modal_vista" id="ver_insumos">Ver Insumos</button>
 											
 											</td>
                                         </tr>
+                                        <script type="text/javascript">
+                                                                                        
+                                                $(document).ready(function(){
+                                                    $(document).on('click', '.ver_insumos', function(){
+                                                        var id=$(this).val("entrega_id");
+                                                     console.log('sadsad');
+                                                    
+                                                        $('#modal_vista').modal('show');
+                                                        
+                                                    });
+                                                });
+                                        </script> 
                                     </tbody>
                                     @endforeach
                                 </table>
@@ -85,5 +97,7 @@
 
     //$("#nuevo_personal1").select2({ dropdownParent: "#modal_nuevo" });
 </script>
+
+
 @endsection
        
