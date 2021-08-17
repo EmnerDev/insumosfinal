@@ -17,8 +17,7 @@
 
                
                  <h5 class="text-dark"style="background-color:#b3ff99;">INSUMOS RECIBIDOS                  
-				</h5>
-              
+				</h5>                 
                 <div class="card-body">   
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -43,22 +42,11 @@
 											<td>{{$e->user->nombres}} {{$e->user->apellidos}}</td>  
 											<td>{{$e->descripcion}}</td> 
 											<td>
-											<button  class="btn btn-success btn-sm mb-2" data-toggle="modal" type="submit" data-target="#modal_vista" id="ver_insumos">Ver Insumos</button>
+											<button  class="btn btn-success btn-sm mb-2"  type="button"  onclick="ver({{$e->id}})">Ver Insumos</button>
 											
 											</td>
                                         </tr>
-                                        <script type="text/javascript">
-                                                                                        
-                                                $(document).ready(function(){
-                                                    $(document).on('click', '.ver_insumos', function(){
-                                                        var id=$(this).val("entrega_id");
-                                                     console.log('sadsad');
-                                                    
-                                                        $('#modal_vista').modal('show');
-                                                        
-                                                    });
-                                                });
-                                        </script> 
+                                   
                                     </tbody>
                                     @endforeach
                                 </table>
@@ -68,6 +56,7 @@
                     </div>
 
                 </div>
+            
                 
             </div>
             
@@ -87,17 +76,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
  <!-- <script src="{{ asset('js/datatable.js') }}"></script> -->
- <script src="{{ asset('js/welcome.js') }}"></script>
+<script src="{{ asset('js/welcome.js') }}"></script>
  <!-- <script src="{{ asset('js/mi-script.js') }}"></script> -->
  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-<script>
-    $('#personal').select2({ dropdownParent: "#modal_nuevo" });
-    //$('#js-example-basic-single').select2();
-
-    //$("#nuevo_personal1").select2({ dropdownParent: "#modal_nuevo" });
-</script>
-
-
 @endsection
        

@@ -25,15 +25,17 @@
                                             <th>Producto</th>
                                         </tr>
                                         </thead>
-                                        @foreach($pivot as $key => $e)
+                                       
                                         <tbody>
+                                        @foreach($pivot as $key => $e)
                                           <tr>
                                               <td>{{ ($key+1) }}</td>
                                               <td>{{ $e->salidaproducto->cantidad }}</td>
                                               <td>{{ $e->salidaproducto->producto->nombre}} - {{$e->salidaproducto->producto->presentacion->nombre }}</td>
                                           </tr>
+                                          @endforeach
                                         </tbody>
-                                        @endforeach
+                                       
                                     </table>
                                 </div>  
                             </div>

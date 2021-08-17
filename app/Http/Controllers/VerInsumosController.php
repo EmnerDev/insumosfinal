@@ -49,39 +49,19 @@ class VerInsumosController extends Controller
 
 
     }
-//     public function insumos_data(){
+   
+    public function ver_insumos($var2){
 
-//        // return $tipo;
-//        $query = Entrega::orderBy("id", "desc")->get();
-//        if($query->count()<1)
-//        return $this->data_null;
-       
+        
+              
+       $pivot = PivotEntregaSalida::join('salida_productos','pivot_entrega_salidas.salida_id','=','salida_productos.id')
+      ->join('productos','salida_productos.producto_id','=','productos.id')
+      ->select('productos.nombre','salida_productos.cantidad')
+      ->get();
+      
+      //where('entrega_id',$var2)->get();
+     
+           // return view('welcome.datos',['entrega' => $entrega],compact('productos','pivot'));
 
-//        // return $query;
-//        foreach ($query as $dato) {
-            
-               
-//                            $personal = $dato->user->nombres.' '.$dato->user->apellidos ;
-//                            $fecha = $dato->fecha;
-//                            $descripcion = $dato->descripcion;
-
-                      
-
-//                            //1. se usa {{estos corchetes cuando estás en HTML }}
-//                            //2. No puedes tenr unas comillas sobre otras '''', se usan las otras ' " " '
-//                            //En este caso, como necesitamos generar la ruta, podrias hacerlo antes de ingresarlo al HTML o generarlo manualmente
-//                            $ruta = route("entrega",$dato->id); //listo tengo ootras dudas :v 
-//                            $ruta2 = route("reportes.entrega",$dato->id);
-//                            $editar = "<a href='$ruta' class='btn btn-sm btn-success'>Editar</a> <a href='$ruta2' class='btn btn-sm btn-warning'>Reporte</a>";
-//                            // $ver= "<a href='$ruta2' class='btn btn-sm btn-success'>Ver Insumos</a>";
-//                            // $eliminar = "<button class='btn btn-sm btn-danger' onclick='eliminar_personal($dato->id)'>Eliminar</button>";
-
-//                            // $data['aaData'][] = [  $usuarios_all, $producto, $cantidad, $presentacion,  $descripcion,$fecha];
-                          
-//                            $data['aaData'][] = [  $fecha, $personal, $descripcion, $editar];
-                           
-//        }
-//        return json_encode($data, true);      
-//    }
-
+    }
  }

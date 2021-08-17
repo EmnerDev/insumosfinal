@@ -68,4 +68,5 @@ Route::post('/salidas/eliminar', 'EntregaController@destroy')->middleware('auth'
 
 //  Route::get('/index', 'VerInsumosController@index')->name('index');
 Route::get('/search_insumos/{dni}/insumos','VerInsumosController@search_insumos');
+Route::get('/ver_insumos/{var2}','VerInsumosController@ver_insumos');
 // Route::get('/welcome/data', 'VerInsumosController@insumos_data')->name('welcome.data'); 
