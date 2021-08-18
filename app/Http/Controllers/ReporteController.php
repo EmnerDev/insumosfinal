@@ -44,4 +44,13 @@ class ReporteController extends Controller
 
     	return $pdf->stream('productos-list.pdf');
     }
+    public function reporte_ver($id){
+       
+        $entrega = Entrega::find($id);
+        $productos = Producto::get();
+        $pivot = PivotEntregaSalida::where('entrega_id',$id)->get();
+        $pdf   = PDF::loadView('reportes.ver', compact('entrega','pivot','productos'));   
+
+    	return $pdf->stream('productos-list.pdf');
+    }
 }

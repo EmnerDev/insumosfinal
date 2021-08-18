@@ -10,16 +10,16 @@
 .i-tabla td, .i-tabla th{
   padding:5px;
   border: 1px solid #AED6F1;
-  border-collapse: collapse;  
+  border-collapse: collapse; 
   width:100%;
-}
+ }
 .i-tabla-cabecera{
-  background-color:#009999;
+  background-color:#0044cc;
   color:#ffffff;
   border:#009999;
 }
 .i-tabla-th{
-  background-color:#b3f0ff;
+  background-color:#b3ccff;
   font-size:12px;
 }
 .i-tabla-td{
@@ -33,10 +33,11 @@
 
 @section('contenido')
 <br> 
-<<h5 align="center" style="margin:0;padding:0;color:blue;text-transform: uppercase;">REPORTE ENTREGA DE INSUMOS</h5><br>
+<h5 align="center" style="margin:0;padding:0;color:blue;text-transform: uppercase;">INSUMOS RECIBIDOS</h5><br>
 	<table class="i-tabla">
-		<tbody>		
-		
+		<tbody>	
+     
+			
 		</tbody>
 	</table>
 	<br>
@@ -45,7 +46,7 @@
 	<table class="i-tabla">
   	<tbody>
     <tr>
-        <th colspan="4" style="background-color:#009999;color:#ffffff;">PRODUCTOS ENTREGADOS</th>        
+        <th colspan="4" style="background-color:#0044cc;color:#ffffff;">PRODUCTOS RECIBIDOS</th>        
     </tr>
     <tr>		<th class="i-tabla-th">N°</th>
 				<th class="i-tabla-th">Insumos</th>

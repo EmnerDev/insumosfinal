@@ -53,7 +53,7 @@ class AdminController extends Controller
                             //En este caso, como necesitamos generar la ruta, podrias hacerlo antes de ingresarlo al HTML o generarlo manualmente
                             $ruta = route("entrega",$dato->id); //listo tengo ootras dudas :v 
                             $ruta2 = route("reportes.entrega",$dato->id);
-                            $editar = "<a href='$ruta' class='btn btn-sm btn-success'>Editar</a> <a href='$ruta2' class='btn btn-sm btn-warning'>Reporte</a>";
+                            $editar = "<a href='$ruta' class='btn btn-sm btn-success'>Editar</a> <a href='$ruta2' class='btn btn-sm btn-warning' target='_blank'>Reporte</a>";
                             // $ver= "<a href='$ruta2' class='btn btn-sm btn-success'>Ver Insumos</a>";
                             // $eliminar = "<button class='btn btn-sm btn-danger' onclick='eliminar_personal($dato->id)'>Eliminar</button>";
 

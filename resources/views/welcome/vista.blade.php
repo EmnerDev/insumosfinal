@@ -19,23 +19,14 @@
                                 <div class="table-responsive ">
                                     <table class="table table-hover table-bordered col-md-12" id="tabla_insumos">
                                         <thead class="" style="background-color:#ffcccc;">
-                                        <tr>
-                                            <th>N°</th>
-                                            <th>Cantidad</th>
-                                            <th>Producto</th>
+                                        <tr>                                            
+                                            <th id="cantidad">Cantidad</th>
+                                            <th id="nombre">Producto</th>
                                         </tr>
-                                        </thead>
-                                       
+                                        </thead>                                       
                                         <tbody>
-                                        @foreach($pivot as $key => $e)
-                                          <tr>
-                                              <td>{{ ($key+1) }}</td>
-                                              <td>{{ $e->salidaproducto->cantidad }}</td>
-                                              <td>{{ $e->salidaproducto->producto->nombre}} - {{$e->salidaproducto->producto->presentacion->nombre }}</td>
-                                          </tr>
-                                          @endforeach
-                                        </tbody>
                                        
+                                        </tbody>                                       
                                     </table>
                                 </div>  
                             </div>

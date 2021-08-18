@@ -42,8 +42,8 @@
 											<td>{{$e->user->nombres}} {{$e->user->apellidos}}</td>  
 											<td>{{$e->descripcion}}</td> 
 											<td>
-											<button  class="btn btn-success btn-sm mb-2"  type="button"  onclick="ver({{$e->id}})">Ver Insumos</button>
-											
+											<!-- <button  class="btn btn-success btn-sm mb-2"  type="button"  onclick="ver({{$e->id}})">Ver Insumos</button> -->
+											<a href="{{route('reportes.ver',$e->id)}}" class='btn btn-sm btn-success' target="_blank" >Ver Insumos</a>
 											</td>
                                         </tr>
                                    

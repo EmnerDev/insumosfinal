@@ -27,8 +27,10 @@ function search_insumos(){
          },
          success:  function (response){
 
-            // $('#tabla_insumos tbody').html(response)  
-            //$("#entrega_id").val(response.entrega_id); 
+            var cantidad = $('#cantidad').val();
+            var nombre = $('#nombre').val();
+            $('#tabla_insumos tbody').append('<tr><td>' + cantidad + '</td><td>' + nombre + '</td></tr>');
+            $("#modal_vista").modal('hide');
             console.log("==>",response);
          
          },
@@ -38,22 +40,3 @@ function search_insumos(){
      });
      $('#modal_vista').modal('show');
   }
-
-//  function ver(id){
-//      $.ajax({
-//          url:   "/ver_insumos/"+id,
-//          type: 'POST',
-        
-//          success:  function (response){
-//              console.log("resultado",response);  
-
-//              var id = this.dataset.id;
-//              document.querySelector('#entrega_id').value = id;
-//          },
-//          error: function (response){
-//              console.log("Error",response.data);
-          
-//          }
-//      });
-//      $("#modal_vista").modal("show");
-//  }

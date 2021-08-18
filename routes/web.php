@@ -54,7 +54,7 @@ Route::get('/reportes/total', 'ReporteController@generar')->name('reportes.total
 Route::get('/reportes/entrada', 'ReporteController@reporte_ingreso')->name('reportes.entrada');
 Route::get('/reportes/salida', 'ReporteController@reporte_salida')->name('reportes.salida');
 Route::get('/reportes/{id}/entrega', 'ReporteController@reporte_entrega')->name('reportes.entrega');
-
+Route::get('/reportes/{id}/ver', 'ReporteController@reporte_ver')->name('reportes.ver');
 //entregas
 
 Route::post('/salidas/entrega_n', 'EntregaController@store')->name('nueva_entrega')->middleware('auth');
